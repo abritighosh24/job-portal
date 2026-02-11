@@ -2,14 +2,15 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+// Serve static files
+app.use(express.static('static'));
+
 // Root Route
 app.get('/', (req, res) => {
-  res.render('home.html', { title: 'Home Page' });
+  res.sendFile(__dirname + '/template/home.html');
 });
 
-app.get('/dashboard', (req, res) => {
-  res.render('dashboard.html', { title: 'Dashboard Page' });
-});
+
 
 // About Route
 app.get('/about', (req, res) => {
